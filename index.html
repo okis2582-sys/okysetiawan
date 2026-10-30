@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oky Setiawan | Web Developer</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- BOOTSTRAP ICONS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    width: 100%;
+    background: #05091e;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #05091e !important;
+    color: white;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(5, 9, 30, 0.9);
+    backdrop-filter: blur(15px);
+    padding: 15px 6%;
+    border-bottom: 1px solid rgba(0, 220, 255, 0.15);
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.navbar-brand span {
+    background: linear-gradient(90deg,#00eaff,#bd4dff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.navbar-nav .nav-link {
+    color: #cbd5f5 !important;
+    margin: 0 9px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00eaff !important;
+}
+
+.navbar-toggler {
+    border-color: #00eaff;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* HERO */
+.welcome-hero {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 7% 40px;
+    background:
+        radial-gradient(ellipse at 80% 50%, #101c55 0%, transparent 45%),
+        linear-gradient(135deg,#05091e,#080d2c,#09051f);
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 40px;
+}
+
+/* TEKS */
+.hello {
+    color: #00eaff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+    animation: fadeUp 1s ease;
+}
+
+.welcome-text h1 {
+    font-size: clamp(38px, 6vw, 75px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.rainbow-text {
+    background: linear-gradient(
+        90deg,
+        #00eaff,
+        #5587ff,
+        #d94dff,
+        #ff4e9b,
+        #00eaff
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbowMove 5s linear infinite;
+}
+
+.welcome-text h2 {
+    font-size: clamp(22px, 3vw, 35px);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#typing {
+    color: #00eaff;
+    border-right: 3px solid #ff4de3;
+    padding-right: 5px;
+}
+
+.welcome-text p {
+    max-width: 570px;
+    color: #bac7e8;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* BUTTON */
+.welcome-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.btn-rainbow,
+.btn-outline-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.btn-rainbow {
+    background: linear-gradient(90deg,#00c6ff,#8b45ff,#ff38b7);
+    background-size: 200%;
+    animation: rainbowMove 4s linear infinite;
+    box-shadow: 0 0 25px #693bff55;
+}
+
+.btn-outline-custom {
+    border: 1px solid #00d9ff;
+    background: #00d9ff0a;
+}
+
+.btn-rainbow:hover,
+.btn-outline-custom:hover {
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #00d9ff88;
+}
+
+/* SKILL */
+.welcome-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.welcome-social span {
+    padding: 8px 15px;
+    border: 1px solid #ffffff25;
+    border-radius: 30px;
+    color: #b9dfff;
+    font-size: 11px;
+    background: #ffffff08;
+    transition: .3s;
+}
+
+.welcome-social span:hover {
+    border-color: #00eaff;
+    color: #00eaff;
+    box-shadow: 0 0 15px #00eaff55;
+}
+
+/* VISUAL */
+.welcome-visual {
+    position: relative;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.developer-box {
+    width: 320px;
+    height: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: radial-gradient(circle,#174c9d66,#10122e 70%);
+    border: 2px solid #00d9ff55;
+    box-shadow: 0 0 70px #155bff55;
+    animation: floating 4s ease-in-out infinite;
+}
+
+.developer-icon {
+    font-size: 145px;
+    color: #00eaff;
+    text-shadow: 0 0 35px #00c8ff;
+    animation: iconGlow 3s infinite alternate;
+}
+
+/* CODE WINDOW */
+.code-window {
+    position: absolute;
+    top: -35px;
+    left: -80px;
+    z-index: 4;
+    width: 255px;
+    padding: 17px;
+    background: #101b3bef;
+    border: 1px solid #00eaff;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #00c8ff55;
+    transform: rotate(-7deg);
+    animation: floating 5s ease-in-out infinite;
+}
+
+.window-dots {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+
+.window-dots i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ff4d8d;
+}
+
+.window-dots i:nth-child(2) {
+    background: #ffce4d;
+}
+
+.window-dots i:nth-child(3) {
+    background: #00eaa0;
+}
+
+.code-lines p {
+    font-size: 10px;
+    color: #a9c9ff;
+    margin: 6px 0;
+    font-family: monospace;
+}
+
+.code-lines span {
+    color: #ff58d7;
+}
+
+/* FLOATING BADGES */
+.floating-tech {
+    position: absolute;
+    padding: 11px 20px;
+    border-radius: 12px;
+    background: #101c43;
+    border: 1px solid #00d9ff;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    box-shadow: 0 0 20px #00d9ff55;
+    animation: floating 3s ease-in-out infinite;
+}
+
+.tech1 {
+    top: 5px;
+    right: -30px;
+    color: #ff8b45;
+}
+
+.tech2 {
+    bottom: 40px;
+    right: -45px;
+    color: #54aaff;
+    animation-delay: .5s;
+}
+
+.tech3 {
+    bottom: -20px;
+    left: 10px;
+    color: #ffe45b;
+    animation-delay: 1s;
+}
+
+.tech4 {
+    top: 130px;
+    left: -60px;
+    color: #b58cff;
+    animation-delay: 1.5s;
+}
+
+/* CINCIN */
+.visual-ring {
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    border: 2px solid transparent;
+    border-top-color: #00eaff;
+    border-right-color: #e83dff;
+    border-radius: 50%;
+    animation: rotateRing 8s linear infinite;
+}
+
+.ring2 {
+    width: 440px;
+    height: 440px;
+    border-top-color: #ffb13d;
+    border-right-color: #00aaff;
+    animation-direction: reverse;
+    animation-duration: 12s;
+}
+
+/* BACKGROUND ORBS */
+.color-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .35;
+    z-index: -1;
+    pointer-events: none;
+    animation: orbMove 9s ease-in-out infinite alternate;
+}
+
+.orb1 {
+    width: 250px;
+    height: 250px;
+    background: #004cff;
+    top: 5%;
+    left: -80px;
+}
+
+.orb2 {
+    width: 280px;
+    height: 280px;
+    background: #d000ff;
+    bottom: 5%;
+    right: -80px;
+    animation-delay: 2s;
+}
+
+.orb3 {
+    width: 180px;
+    height: 180px;
+    background: #00eaff;
+    top: 45%;
+    left: 45%;
+    animation-delay: 4s;
+}
+
+/* PARTICLES */
+.particles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: particleFloat 6s ease-in-out infinite alternate;
+}
+
+/* SCROLL */
+.scroll-down {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #aab9e0;
+    font-size: 11px;
+    margin-top: 45px;
+    position: relative;
+    z-index: 3;
+}
+
+.scroll-down i {
+    color: #00eaff;
+    font-size: 22px;
+}
+
+.arrow-down {
+    animation: bounce 1s infinite;
+}
+
+/* ANIMATION */
+@keyframes rainbowMove {
+    to {
+        background-position: 300% center;
+    }
+}
+
+@keyframes floating {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes rotateRing {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes iconGlow {
+    from {
+        text-shadow: 0 0 15px #00c8ff;
+    }
+    to {
+        text-shadow: 0 0 45px #c43dff;
+    }
+}
+
+@keyframes orbMove {
+    from {
+        transform: translate(0,0) scale(1);
+    }
+    to {
+        transform: translate(60px,-40px) scale(1.3);
+    }
+}
+
+@keyframes bounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes particleFloat {
+    from {
+        transform: translateY(0) translateX(0);
+        opacity: .3;
+    }
+    to {
+        transform: translateY(-90px) translateX(35px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+    .welcome-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .welcome-text p {
+        margin: auto;
+    }
+
+    .welcome-buttons,
+    .welcome-social {
+        justify-content: center;
+    }
+
+    .welcome-visual {
+        min-height: 400px;
+        margin-top: 25px;
+    }
+}
+
+@media(max-width: 576px) {
+    .welcome-hero {
+        padding: 110px 20px 40px;
+        min-height: 100vh;
+    }
+
+    .welcome-text h1 {
+        font-size: 39px;
+    }
+
+    .welcome-text h2 {
+        font-size: 22px;
+    }
+
+    .welcome-text p {
+        font-size: 13px;
+    }
+
+    .welcome-visual {
+        min-height: 350px;
+    }
+
+    .developer-box {
+        width: 220px;
+        height: 220px;
+    }
+
+    .developer-icon {
+        font-size: 100px;
+    }
+
+    .visual-ring {
+        width: 270px;
+        height: 270px;
+    }
+
+    .ring2 {
+        width: 310px;
+        height: 310px;
+    }
+
+    .code-window {
+        width: 175px;
+        left: -10px;
+        top: -10px;
+    }
+
+    .code-lines p {
+        font-size: 8px;
+    }
+
+    .floating-tech {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+
+    .tech1 {
+        right: -5px;
+    }
+
+    .tech2 {
+        right: -10px;
+    }
+
+    .tech4 {
+        left: -5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+<div class="container-fluid">
+
+<a class="navbar-brand" href="#beranda">
+    <i class="bi bi-code-slash text-info"></i>
+    Oky <span>Setiawan</span>
+</a>
+
+<button class="navbar-toggler" type="button"
+data-bs-toggle="collapse" data-bs-target="#menuNavbar">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menuNavbar">
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+    <li class="nav-item">
+        <a class="nav-link" href="#beranda">Beranda</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#tentang">Tentang</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#keahlian">Keahlian</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#proyek">Proyek</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#sertifikat">Sertifikat</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#kontak">Kontak</a>
+    </li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- HALAMAN SELAMAT DATANG -->
+<section id="beranda" class="welcome-hero">
+
+    <div class="color-orb orb1"></div>
+    <div class="color-orb orb2"></div>
+    <div class="color-orb orb3"></div>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="welcome-content">
+
+        <div class="welcome-text">
+
+            <span class="hello">
+                👋 HALO, SELAMAT DATANG DI PORTOFOLIO SAYA
+            </span>
+
+            <h1>
+                Saya <span class="rainbow-text">Oky Setiawan</span>
+            </h1>
+
+            <h2>
+                Seorang <span id="typing"></span>
+            </h2>
+
+            <p>
+                Saya lulusan SMK jurusan Rekayasa Perangkat Lunak (RPL)
+                yang memiliki minat dalam dunia teknologi, pemrograman,
+                dan pengembangan website modern. Saya senang mempelajari
+                hal baru dan membangun solusi digital yang bermanfaat.
+            </p>
+
+            <div class="welcome-buttons">
+
+                <a href="oky.html" class="btn-rainbow">
+                    <i class="bi bi-code-slash"></i>
+                    Lihat Proyek Saya
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a href="#kontak" class="btn-outline-custom">
+                    <i class="bi bi-chat-dots"></i>
+                    Hubungi Saya
+                </a>
+
+            </div>
+
+            <div class="welcome-social">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+            </div>
+
+        </div>
+
+        <!-- VISUAL DEVELOPER -->
+        <div class="welcome-visual">
+
+            <div class="visual-ring ring1"></div>
+            <div class="visual-ring ring2"></div>
+
+            <div class="developer-box">
+
+                <div class="developer-icon">
+                    <i class="bi bi-person-workspace"></i>
+                </div>
+
+                <div class="code-window">
+
+                    <div class="window-dots">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </div>
+
+                    <div class="code-lines">
+                        <p><span>const</span> developer = {</p>
+                        <p>&nbsp; name: "Oky Setiawan",</p>
+                        <p>&nbsp; skill: "Web Developer",</p>
+                        <p>&nbsp; passion: "Coding"</p>
+                        <p>};</p>
+                    </div>
+
+                </div>
+
+                <div class="floating-tech tech1">HTML</div>
+                <div class="floating-tech tech2">CSS</div>
+                <div class="floating-tech tech3">JS</div>
+                <div class="floating-tech tech4">PHP</div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        <i class="bi bi-mouse"></i>
+        <span>Scroll untuk menjelajahi</span>
+        <i class="bi bi-chevron-down arrow-down"></i>
+    </div>
+
+</section>
+
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// ANIMASI TEKS BERGANTIAN
+const typingElement = document.getElementById("typing");
+
+const typingWords = [
+    "Web Developer",
+    "Programmer",
+    "UI Designer",
+    "Digital Creator"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typingAnimation() {
+
+    const currentWord = typingWords[wordIndex];
+
+    typingElement.textContent =
+        currentWord.substring(0, charIndex);
+
+    if (!deleting && charIndex < currentWord.length) {
+
+        charIndex++;
+        setTimeout(typingAnimation, 110);
+
+    } else if (deleting && charIndex > 0) {
+
+        charIndex--;
+        setTimeout(typingAnimation, 55);
+
+    } else {
+
+        deleting = !deleting;
+
+        if (!deleting) {
+            wordIndex =
+                (wordIndex + 1) % typingWords.length;
+        }
+
+        setTimeout(typingAnimation, 700);
+    }
+}
+
+typingAnimation();
+
+
+// MEMBUAT PARTIKEL WARNA-WARNI
+const particleContainer =
+    document.getElementById("particles");
+
+for (let i = 0; i < 45; i++) {
+
+    const particle = document.createElement("span");
+
+    particle.className = "particle";
+
+    const size = Math.random() * 5 + 2;
+    const hue = Math.random() * 360;
+    const duration = Math.random() * 5 + 4;
+
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+    particle.style.background =
+        `hsl(${hue},100%,65%)`;
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.top =
+        Math.random() * 100 + "%";
+
+    particle.style.boxShadow =
+        "0 0 12px currentColor";
+
+    particle.style.animationDuration =
+        duration + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 5 + "s";
+
+    particleContainer.appendChild(particle);
+}
+</script>
+
+</body>
+</html>
+
